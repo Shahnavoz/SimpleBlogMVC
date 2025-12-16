@@ -1,0 +1,43 @@
+﻿@using SimpleBlogMVCApplication.Models.Entities
+<div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-traffic mb-0">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Название</th>
+                                <th class="text-end">Действия</th> <!-- Новая колонка в конце -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Post post in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <a href="javascript:void(0);" class="text-muted">#@post.Id</a>
+                                    </td>
+                                    <td>
+                                        <p class="mb-0">@post.Title</p>
+                                    </td>
+                                    <td class="text-end"> 
+                                        <a asp-controller="Category"
+                                           asp-action="Edit"
+                                           asp-route-id="@post.Id"
+                                           class="btn btn-sm bg-primary-subtle me-1"
+                                           title="Edit">
+                                            <i class="mdi mdi-pencil-outline fs-14 text-primary"></i>
+                                        </a>
+
+                                        <a onclick="deleteCategory(@post.Id)"
+                                           class="btn btn-sm bg-danger-subtle"
+                                           data-bs-toggle="tooltip"
+                                           data-bs-original-title="Delete">
+                                            <i class="mdi mdi-delete fs-14 text-danger"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>

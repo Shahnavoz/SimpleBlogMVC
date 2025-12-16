@@ -1,0 +1,21 @@
+﻿@using SimpleBlogMVCApplication.Models.Entities
+@model SimpleBlogMVCApplication.Models.Entities.Post
+
+@{
+    ViewData["Title"] = "Добавить категорию";
+    //List<Post> posts = ViewBag.Posts;
+}
+
+<h2 class="mb-4">Добавить категорию</h2>
+
+<form asp-controller="Post" asp-action="Create"  method="post">
+    <div class="mb-3">
+        <label asp-for="Title" class="form-label">Post title</label>
+        <input asp-for="Title" class="form-control" />
+        <label asp-for="Content" class="form-label">Post Content</label>
+        <input asp-for="Content" class="form-control" />
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+    <a asp-action="Index" class="btn btn-secondary ms-2">Отмена</a>
+</form>
