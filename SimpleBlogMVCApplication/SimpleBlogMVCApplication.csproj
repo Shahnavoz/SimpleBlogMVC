@@ -20,4 +20,10 @@
       <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
     </ItemGroup>
 
+    <ItemGroup>
+      <AdditionalFiles Include="Views\Tag\Create.cshtml" />
+      <AdditionalFiles Include="Views\Tag\Index.cshtml" />
+      <AdditionalFiles Include="Views\Tag\_PostList.cshtml" />
+    </ItemGroup>
+
 </Project>

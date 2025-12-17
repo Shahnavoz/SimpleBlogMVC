@@ -13,6 +13,7 @@ builder.Services.AddControllersWithViews();
 var connection = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(conf => conf.UseNpgsql(connection));
 builder.Services.AddScoped<IPostService, PostService>();
+builder.Services.AddScoped<ITagService, TagService>();
 builder.Services.AddAutoMapper(typeof(PostMapperProfile));
 
 

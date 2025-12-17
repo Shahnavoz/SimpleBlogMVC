@@ -1,7 +1,7 @@
 ﻿@using SimpleBlogMVCApplication.Models.Entities
 @{
-    ViewData["Title"] = "Posts";
-    List<Post> posts = ViewBag.Posts;
+    ViewData["Title"] = "Tags";
+    List<Tag> posts = ViewBag.Tags;
 }
 
 <div class="row">
@@ -10,8 +10,8 @@
         <div class="card overflow-hidden mb-0">
             <div class="card-header">
                 <div class="d-flex align-items-center justify-content-between">
-                    <h5 class="card-title text-black mb-0">Post List</h5>
-                    <a href="@Url.Action("Create", "Post")" class="btn btn-outline-success">+ Добавить</a>
+                    <h5 class="card-title text-black mb-0">Tag List</h5>
+                    <a href="@Url.Action("Create", "Tag")" class="btn btn-outline-success">+ Добавить</a>
                 </div>
             </div>
 
@@ -27,25 +27,25 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (Post post in Model)
+                            @foreach (Tag tag in Model)
                             {
                                 <tr>
                                     <td>
-                                        <a href="javascript:void(0);" class="text-muted">#@post.Id</a>
+                                        <a href="javascript:void(0);" class="text-muted">#@tag.Id</a>
                                     </td>
                                     <td>
-                                        <p class="mb-0">@post.Title</p>
+                                        <p class="mb-0">@tag.Name</p>
                                     </td>
                                     <td class="text-end"> 
-                                        <a asp-controller="Post"
+                                        <a asp-controller="Tag"
                                            asp-action="Update"
-                                           asp-route-id="@post.Id"
+                                           asp-route-id="@tag.Id"
                                            class="btn btn-sm bg-primary-subtle me-1"
                                            title="Edit">
                                             <i class="mdi mdi-pencil-outline fs-14 text-primary"></i>
                                         </a>
 
-                                        <a onclick="deletePost(@post.Id)"
+                                        <a onclick="deleteTag(@tag.Id)"
                                            class="btn btn-sm bg-danger-subtle"
                                            data-bs-toggle="tooltip"
                                            data-bs-original-title="Delete">
@@ -92,9 +92,9 @@
 </div>
 
 <script>
-    function deletePost(id) {
-        if (confirm('Вы уверены, что хотите удалить post?')) {
-            fetch(`/Post/Delete/${id}`, {
+    function deleteTag(id) {
+        if (confirm('Вы уверены, что хотите удалить tag?')) {
+            fetch(`/Tag/Delete/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'X-Requested-With': 'XMLHttpRequest',

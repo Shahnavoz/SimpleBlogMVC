@@ -30,6 +30,7 @@ public class PostService(ApplicationDbContext context,IMapper mapper):IPostServi
         {
             Id = post.Id,
             Name = post.Title,
+            Content = post.Content,
         };
     }
 
